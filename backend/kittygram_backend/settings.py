@@ -7,7 +7,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key-for-dev')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['89.169.167.77', '127.0.0.1', 'localhost', 'kittyroom.ddns.net']
+ALLOWED_HOSTS = ['89.169.167.77', '127.0.0.1', 'localhost', 'kitty.freedynamicdns.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
