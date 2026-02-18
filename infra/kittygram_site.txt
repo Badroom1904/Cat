@@ -1,5 +1,5 @@
 IP: 89.169.167.77;
-name_taski: http://badroom.freedynamicdns.org;
-name_kittygram: http://kittygram.ddns.net;
+name_taski: https://badroom.freedynamicdns.org;
+name_kittygram: https://kittygram.ddns.net;
 login: Badroom;
 password: pfobnybr03;
