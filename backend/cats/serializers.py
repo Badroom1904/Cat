@@ -9,17 +9,30 @@ import datetime as dt
 
 from .models import Achievement, AchievementCat, Cat
 
-
 class Hex2NameColor(serializers.Field):
     def to_representation(self, value):
         return value
 
     def to_internal_value(self, data):
-        try:
-            data = webcolors.hex_to_name(data)
-        except ValueError:
-            raise serializers.ValidationError('Для этого цвета нет имени')
-        return data
+        # Если данные - это строка
+        if isinstance(data, str):
+            # Если это HEX-код (начинается с #)
+            if data.startswith('#'):
+                try:
+                    return webcolors.hex_to_name(data)
+                except ValueError:
+                    # Если HEX не найден, возвращаем как есть
+                    return data
+            else:
+                # Если это название цвета, проверяем его существование
+                try:
+                    webcolors.name_to_hex(data)
+                    return data
+                except ValueError:
+                    # Если название не найдено, возвращаем ошибку
+                    raise serializers.ValidationError(f'Для цвета "{data}" нет имени')
+        # Если данные не строка
+        raise serializers.ValidationError('Цвет должен быть строкой')
 
 
 class AchievementSerializer(serializers.ModelSerializer):
