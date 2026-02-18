@@ -1,0 +1,5 @@
+IP: 89.169.167.77
+name_taski: http://badroom.freedynamicdns.org (или ваш IP:8000)
+name_kittygram: http://kittygram.ddns.net (или ваш IP)
+login: Badroom
+password: pfobnybr03

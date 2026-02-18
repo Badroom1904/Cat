@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon for cat project
+After=network.target
+
+[Service]
+User=yc-user
+Group=www-data
+WorkingDirectory=/home/yc-user/cat/backend
+Environment="PATH=/home/yc-user/cat/venv/bin"
+ExecStart=/home/yc-user/cat/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
